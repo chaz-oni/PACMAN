@@ -1,0 +1,1729 @@
+fileFormatVersion: 2
+guid: 0b40f2b820dd61d4293b0c89249d13d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8991057228020396591
+    second: red letters_0
+  - first:
+      213: -6303108929599179233
+    second: red letters_1
+  - first:
+      213: -2470799392553386270
+    second: red letters_2
+  - first:
+      213: -6885376415697459267
+    second: red letters_3
+  - first:
+      213: 8806327433766188866
+    second: red letters_4
+  - first:
+      213: -5192003553425289502
+    second: red letters_5
+  - first:
+      213: 4454211570716613632
+    second: red letters_6
+  - first:
+      213: -4227803294019502237
+    second: red letters_7
+  - first:
+      213: -3908202835234269519
+    second: red letters_8
+  - first:
+      213: 7116086544409136644
+    second: red letters_9
+  - first:
+      213: 364911702248657715
+    second: red letters_10
+  - first:
+      213: 2428597726516981921
+    second: red letters_11
+  - first:
+      213: 4677877468041281314
+    second: red letters_12
+  - first:
+      213: 3936276393676881184
+    second: red letters_13
+  - first:
+      213: -2252589466874569421
+    second: red letters_14
+  - first:
+      213: -4040164099780869415
+    second: red letters_15
+  - first:
+      213: 810341315507753780
+    second: red letters_16
+  - first:
+      213: 4715059225274075697
+    second: red letters_17
+  - first:
+      213: 5243593444108787166
+    second: red letters_18
+  - first:
+      213: -4835613374141598799
+    second: red letters_19
+  - first:
+      213: -2391160189875207439
+    second: red letters_20
+  - first:
+      213: 6152869728404414475
+    second: red letters_21
+  - first:
+      213: -951998241108718278
+    second: red letters_22
+  - first:
+      213: 3511946530057950642
+    second: red letters_23
+  - first:
+      213: -5759591954958534333
+    second: red letters_24
+  - first:
+      213: 838356122631080961
+    second: red letters_25
+  - first:
+      213: -4910145904147235924
+    second: red letters_26
+  - first:
+      213: 2397251826708371199
+    second: red letters_27
+  - first:
+      213: 8478762896733014008
+    second: red letters_28
+  - first:
+      213: 5463869661904114516
+    second: red letters_29
+  - first:
+      213: 7882108272111800296
+    second: red letters_30
+  - first:
+      213: 2725638595741465377
+    second: red letters_31
+  - first:
+      213: 8223002898796180388
+    second: red letters_32
+  - first:
+      213: 7164631017520594984
+    second: red letters_33
+  - first:
+      213: -5909302305990359106
+    second: red letters_34
+  - first:
+      213: 8889270207811680251
+    second: red letters_35
+  - first:
+      213: -1938946268755958826
+    second: red letters_36
+  - first:
+      213: -5178972868256907915
+    second: red letters_37
+  - first:
+      213: 7042405926916493757
+    second: red letters_38
+  - first:
+      213: -7347703385119641559
+    second: red letters_39
+  - first:
+      213: 5984577956182698307
+    second: red letters_40
+  - first:
+      213: -8582796223261666378
+    second: red letters_41
+  - first:
+      213: 5052771498624116382
+    second: red letters_42
+  - first:
+      213: -5467317041393730450
+    second: red letters_43
+  - first:
+      213: -5002837449582435226
+    second: red letters_44
+  - first:
+      213: -3073904763785891867
+    second: red letters_45
+  - first:
+      213: -8011326012811934306
+    second: red letters_46
+  - first:
+      213: 6103909727592710467
+    second: red letters_47
+  - first:
+      213: -6853645860045754556
+    second: red letters_48
+  - first:
+      213: 4676934300826282468
+    second: red letters_49
+  - first:
+      213: -6172890828614622590
+    second: red letters_50
+  - first:
+      213: 6404830692610165552
+    second: red letters_51
+  - first:
+      213: 5860405341568290030
+    second: red letters_52
+  - first:
+      213: 8999723460624618901
+    second: red letters_53
+  - first:
+      213: -2694498646792692630
+    second: red letters_54
+  - first:
+      213: -3369381194943631654
+    second: red letters_55
+  - first:
+      213: 950397087481371362
+    second: red letters_56
+  - first:
+      213: 2852321771691061699
+    second: red letters_57
+  - first:
+      213: -7964665964354124821
+    second: red letters_58
+  - first:
+      213: 167077385277903047
+    second: red letters_59
+  - first:
+      213: 1179567706661327337
+    second: red letters_60
+  - first:
+      213: 6533420949026638996
+    second: red letters_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: red letters_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f223d5789e6a6cc70800000000000000
+      internalID: 8991057228020396591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 252
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16f5a6e2dbd688a0800000000000000
+      internalID: -6303108929599179233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eeba971b05f5bdd0800000000000000
+      internalID: -2470799392553386270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_3
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7208551aa3270a0800000000000000
+      internalID: -6885376415697459267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_4
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2473961a42c563a70800000000000000
+      internalID: 8806327433766188866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_5
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee058dc64c42f7b0800000000000000
+      internalID: -5192003553425289502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_6
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c9ffaf2d980dd30800000000000000
+      internalID: 4454211570716613632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36fbdbfcd43d355c0800000000000000
+      internalID: -4227803294019502237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b6dfa75a3643c9c0800000000000000
+      internalID: -3908202835234269519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_9
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e817e620b61c260800000000000000
+      internalID: 7116086544409136644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_10
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3331ae2824d601500800000000000000
+      internalID: 364911702248657715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_11
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0bd57d3cc14b120800000000000000
+      internalID: 2428597726516981921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_12
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f7761d5c82be040800000000000000
+      internalID: 4677877468041281314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_13
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02dbdd6568670a630800000000000000
+      internalID: 3936276393676881184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_14
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 252
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d972a80d13db0e0800000000000000
+      internalID: -2252589466874569421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_15
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2864e28247ee7c0800000000000000
+      internalID: -4040164099780869415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_16
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43399a11229ee3b00800000000000000
+      internalID: 810341315507753780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ac36942614f6140800000000000000
+      internalID: 4715059225274075697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_18
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 252
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edddba6a47cf4c840800000000000000
+      internalID: 5243593444108787166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_19
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 252
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b37923a14374ecb0800000000000000
+      internalID: -4835613374141598799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_20
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2ce69e974e0ded0800000000000000
+      internalID: -2391160189875207439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 223
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00acce2b62636550800000000000000
+      internalID: 6152869728404414475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_22
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d0be3c4a2d9c2f0800000000000000
+      internalID: -951998241108718278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_23
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5154213c0fcb030800000000000000
+      internalID: 3511946530057950642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_24
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349bf71f1a1d110b0800000000000000
+      internalID: -5759591954958534333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_25
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c03b4a37072ab00800000000000000
+      internalID: 838356122631080961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_26
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cabf6f3b058abdbb0800000000000000
+      internalID: -4910145904147235924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_27
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6db10d5dfb44120800000000000000
+      internalID: 2397251826708371199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_28
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f78882aeed9aa570800000000000000
+      internalID: 8478762896733014008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_29
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 223
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45314d8328093db40800000000000000
+      internalID: 5463869661904114516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_30
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef446856bfd26d60800000000000000
+      internalID: 7882108272111800296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_31
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12bb34d9cd963d520800000000000000
+      internalID: 2725638595741465377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_32
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3f0c1b199fd1270800000000000000
+      internalID: 8223002898796180388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_33
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8208f0a53f1ed6360800000000000000
+      internalID: 7164631017520594984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_34
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 223
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb74c0d8cd0fdfda0800000000000000
+      internalID: -5909302305990359106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_35
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 223
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7f31918280d5b70800000000000000
+      internalID: 8889270207811680251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_36
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 223
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d36b3c34aa7715e0800000000000000
+      internalID: -1938946268755958826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_37
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 220
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d392e9d979028b0800000000000000
+      internalID: -5178972868256907915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_38
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 223
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db196f5d0e6abb160800000000000000
+      internalID: 7042405926916493757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_39
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 223
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920320773b6b70a90800000000000000
+      internalID: -7347703385119641559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_40
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 223
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34927e881fd7d0350800000000000000
+      internalID: 5984577956182698307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_41
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 189
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b39cecfe48c3e880800000000000000
+      internalID: -8582796223261666378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_42
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 190
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9665b248ec0f1640800000000000000
+      internalID: 5052771498624116382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_43
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 190
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c79413e103024b0800000000000000
+      internalID: -5467317041393730450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_44
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 190
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6642e9488d9529ab0800000000000000
+      internalID: -5002837449582435226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_45
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 190
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef292157eb4755d0800000000000000
+      internalID: -3073904763785891867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_46
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 190
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e958f7aef6d02d090800000000000000
+      internalID: -8011326012811934306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_47
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 190
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341073eae8175b450800000000000000
+      internalID: 6103909727592710467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_48
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 190
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44f65a70765f2e0a0800000000000000
+      internalID: -6853645860045754556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_49
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 190
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9279697fec7e040800000000000000
+      internalID: 4676934300826282468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_50
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 190
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282a82b2f7c755aa0800000000000000
+      internalID: -6172890828614622590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_51
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 190
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b4c87a49782e850800000000000000
+      internalID: 6404830692610165552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_52
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 204
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeccaffbb97545150800000000000000
+      internalID: 5860405341568290030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_53
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 204
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595974b0ec075ec70800000000000000
+      internalID: 8999723460624618901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_54
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 204
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c962eb1c73b9ad0800000000000000
+      internalID: -2694498646792692630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_55
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 204
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adee08aa7ad8d31d0800000000000000
+      internalID: -3369381194943631654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_56
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 192
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea94ea9d1d703d00800000000000000
+      internalID: 950397087481371362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_57
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 192
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c132c20a8b759720800000000000000
+      internalID: 2852321771691061699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_58
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 192
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be347080182d77190800000000000000
+      internalID: -7964665964354124821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_59
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 192
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c09d772ff3915200800000000000000
+      internalID: 167077385277903047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_60
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 192
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e11210649aae5010800000000000000
+      internalID: 1179567706661327337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red letters_61
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 195
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c04d2dcbf5baa50800000000000000
+      internalID: 6533420949026638996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      red letters_0: 8991057228020396591
+      red letters_1: -6303108929599179233
+      red letters_10: 364911702248657715
+      red letters_11: 2428597726516981921
+      red letters_12: 4677877468041281314
+      red letters_13: 3936276393676881184
+      red letters_14: -2252589466874569421
+      red letters_15: -4040164099780869415
+      red letters_16: 810341315507753780
+      red letters_17: 4715059225274075697
+      red letters_18: 5243593444108787166
+      red letters_19: -4835613374141598799
+      red letters_2: -2470799392553386270
+      red letters_20: -2391160189875207439
+      red letters_21: 6152869728404414475
+      red letters_22: -951998241108718278
+      red letters_23: 3511946530057950642
+      red letters_24: -5759591954958534333
+      red letters_25: 838356122631080961
+      red letters_26: -4910145904147235924
+      red letters_27: 2397251826708371199
+      red letters_28: 8478762896733014008
+      red letters_29: 5463869661904114516
+      red letters_3: -6885376415697459267
+      red letters_30: 7882108272111800296
+      red letters_31: 2725638595741465377
+      red letters_32: 8223002898796180388
+      red letters_33: 7164631017520594984
+      red letters_34: -5909302305990359106
+      red letters_35: 8889270207811680251
+      red letters_36: -1938946268755958826
+      red letters_37: -5178972868256907915
+      red letters_38: 7042405926916493757
+      red letters_39: -7347703385119641559
+      red letters_4: 8806327433766188866
+      red letters_40: 5984577956182698307
+      red letters_41: -8582796223261666378
+      red letters_42: 5052771498624116382
+      red letters_43: -5467317041393730450
+      red letters_44: -5002837449582435226
+      red letters_45: -3073904763785891867
+      red letters_46: -8011326012811934306
+      red letters_47: 6103909727592710467
+      red letters_48: -6853645860045754556
+      red letters_49: 4676934300826282468
+      red letters_5: -5192003553425289502
+      red letters_50: -6172890828614622590
+      red letters_51: 6404830692610165552
+      red letters_52: 5860405341568290030
+      red letters_53: 8999723460624618901
+      red letters_54: -2694498646792692630
+      red letters_55: -3369381194943631654
+      red letters_56: 950397087481371362
+      red letters_57: 2852321771691061699
+      red letters_58: -7964665964354124821
+      red letters_59: 167077385277903047
+      red letters_6: 4454211570716613632
+      red letters_60: 1179567706661327337
+      red letters_61: 6533420949026638996
+      red letters_7: -4227803294019502237
+      red letters_8: -3908202835234269519
+      red letters_9: 7116086544409136644
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
