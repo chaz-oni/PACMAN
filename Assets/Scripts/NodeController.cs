@@ -69,4 +69,27 @@ public class NodeController : MonoBehaviour
     {
 
     }
+    public GameObject GetNodeFromDirection(string direction)
+    {
+        if (direction == "left" && canMoveLeft)
+        {
+            return nodeLeft;
+        }
+        if (direction == "right" && canMoveRigth)
+        {
+            return nodeRight;
+        }
+        if (direction == "up" && canMoveUp)
+        {
+            return nodeUp;
+        }
+        if (direction == "doen" && canMoveDown)
+        {
+            return nodeDown;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
