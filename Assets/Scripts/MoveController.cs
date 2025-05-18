@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 public class MoveController : MonoBehaviour
 {
+    public GameManager gameManager;
     public GameObject currentNode;
     public float speed = 4f;
     public string direction = "";
     public string lastMovingDirection = "";
+
+    private bool canWarp = true;
+
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -17,26 +21,66 @@ public class MoveController : MonoBehaviour
     {
         NodeController currentNodeController = currentNode.GetComponent<NodeController>();
         transform.position = Vector2.MoveTowards(transform.position, currentNode.transform.position, speed * Time.deltaTime);
-        //Asegurarse de estar en el centro del siguiente nodo
-        if (transform.position.x == currentNode.transform.position.x && transform.position.y == currentNode.transform.position.y)
+        bool reverseDirection = false;
+        if (
+            (direction == "left" && lastMovingDirection == "right")
+            || (direction == "right" && lastMovingDirection == "left")
+            || (direction == "up" && lastMovingDirection == "down")
+            || (direction == "down" && lastMovingDirection == "up")
+        )
         {
-            GameObject newNode = currentNodeController.GetNodeFromDirection(direction);
-            if (newNode != null)
+            reverseDirection = true;
+        }
+        //Asegurarse de estar en el centro del siguiente nodo
+        if ((transform.position.x == currentNode.transform.position.x && transform.position.y == currentNode.transform.position.y) || reverseDirection)
+        {
+            //Si se llega al nodo left warp se cambia la posición al right warp y se ajusta la dirección
+            if (currentNodeController.isWarpLeftNode && canWarp)
             {
-                currentNode = newNode;
-                lastMovingDirection = direction;
+                currentNode = gameManager.rightWarpNode;
+                direction = "left";
+                lastMovingDirection = "left";
+                transform.position = currentNode.transform.position;
+                canWarp = false;
             }
-            //No se puede mover en la dirección deseada, entonces seguir en la ultima dirección
+            //Si se llega al nodo right warp se cambia la posición al left warp y se ajusta la dirección
+
+            else if (currentNodeController.isWarpRightNode && canWarp)
+            {
+                currentNode = gameManager.leftWarpNode;
+                direction = "right";
+                lastMovingDirection = "right";
+                transform.position = currentNode.transform.position;
+                canWarp = false;
+            }
+            //Encuentra el siguiente nodo
             else
             {
-                direction = lastMovingDirection;
-                newNode = currentNodeController.GetNodeFromDirection(direction);
+                GameObject newNode = currentNodeController.GetNodeFromDirection(direction);
                 if (newNode != null)
                 {
                     currentNode = newNode;
+                    lastMovingDirection = direction;
                 }
+                //No se puede mover en la dirección deseada, entonces seguir en la ultima dirección
+                else
+                {
+                    direction = lastMovingDirection;
+                    newNode = currentNodeController.GetNodeFromDirection(direction);
+                    if (newNode != null)
+                    {
+                        currentNode = newNode;
+                    }
+                }
+
             }
 
+
+
+        }
+        else
+        {
+            canWarp = true;
         }
     }
     public void SetDirection(string newDirection)

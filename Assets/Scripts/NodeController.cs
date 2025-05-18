@@ -7,11 +7,14 @@ public class NodeController : MonoBehaviour
     public bool canMoveRigth = false;
     public bool canMoveUp = false;
     public bool canMoveDown = false;
+
     public GameObject nodeLeft;
     public GameObject nodeRight;
     public GameObject nodeUp;
     public GameObject nodeDown;
 
+    public bool isWarpRightNode = false;
+    public bool isWarpLeftNode = false;
     void Start()
     {
         RaycastHit2D[] hitsDown;
