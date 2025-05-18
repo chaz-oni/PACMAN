@@ -11,7 +11,7 @@ public class MoveController : MonoBehaviour
 
     private bool canWarp = true;
 
-    void Start()
+    void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }

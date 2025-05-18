@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject leftWarpNode;
     public GameObject rightWarpNode;
-    void Start()
+    void Awake()
     {
 
     }
