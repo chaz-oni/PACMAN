@@ -87,5 +87,13 @@ public class MoveController : MonoBehaviour
     {
         direction = newDirection;
     }
+    public bool CanMoveInDirection(string dir)
+    {
+        if (currentNode == null) return false;
+        NodeController nodeController = currentNode.GetComponent<NodeController>();
+        GameObject nextNode = nodeController.GetNodeFromDirection(dir);
+        return nextNode != null;
+    }
+
 
 }
