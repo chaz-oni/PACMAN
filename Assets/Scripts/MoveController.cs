@@ -9,7 +9,8 @@ public class MoveController : MonoBehaviour
     public string direction = "";
     public string lastMovingDirection = "";
 
-    private bool canWarp = true;
+    public bool canWarp = true;
+    public bool isGhost = false;
 
     void Awake()
     {
@@ -34,6 +35,10 @@ public class MoveController : MonoBehaviour
         //Asegurarse de estar en el centro del siguiente nodo
         if ((transform.position.x == currentNode.transform.position.x && transform.position.y == currentNode.transform.position.y) || reverseDirection)
         {
+            if (isGhost)
+            {
+                GetComponent<EnemyController>().ReachCenterNOde(currentNodeController);
+            }
             //Si se llega al nodo left warp se cambia la posición al right warp y se ajusta la dirección
             if (currentNodeController.isWarpLeftNode && canWarp)
             {

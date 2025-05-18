@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         movementController = GetComponent<MoveController>();
+        transform.localScale = new Vector3(-1, 1, 1);
+        movementController.lastMovingDirection = "left";
 
     }
 
