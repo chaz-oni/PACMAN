@@ -39,5 +39,9 @@ public class MoveController : MonoBehaviour
 
         }
     }
+    public void SetDirection(string newDirection)
+    {
+        direction = newDirection;
+    }
 
 }

@@ -27,8 +27,8 @@ public class NodeController : MonoBehaviour
             }
         }
         RaycastHit2D[] hitsUp;
-        //Raycast hacia abajo
-        hitsUp = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        //Raycast hacia arriba
+        hitsUp = Physics2D.RaycastAll(transform.position, Vector2.up);
         for (int i = 0; i < hitsUp.Length; i++)
         {
             float distance = Mathf.Abs(hitsUp[i].point.y - transform.position.y);
@@ -39,8 +39,8 @@ public class NodeController : MonoBehaviour
             }
         }
         RaycastHit2D[] hitsRight;
-        //Raycast hacia abajo
-        hitsRight = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        //Raycast hacia la derecha
+        hitsRight = Physics2D.RaycastAll(transform.position, Vector2.right);
         for (int i = 0; i < hitsRight.Length; i++)
         {
             float distance = Mathf.Abs(hitsRight[i].point.x - transform.position.x);
@@ -52,7 +52,7 @@ public class NodeController : MonoBehaviour
         }
         RaycastHit2D[] hitsLeft;
         //Raycast hacia abajo
-        hitsLeft = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        hitsLeft = Physics2D.RaycastAll(transform.position, -Vector2.right);
         for (int i = 0; i < hitsLeft.Length; i++)
         {
             float distance = Mathf.Abs(hitsLeft[i].point.x - transform.position.x);
@@ -83,7 +83,7 @@ public class NodeController : MonoBehaviour
         {
             return nodeUp;
         }
-        if (direction == "doen" && canMoveDown)
+        if (direction == "down" && canMoveDown)
         {
             return nodeDown;
         }
