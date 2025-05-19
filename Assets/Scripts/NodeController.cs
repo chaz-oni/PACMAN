@@ -19,8 +19,13 @@ public class NodeController : MonoBehaviour
     public bool isPelletNode = false;
     public bool hasPellet = false;
     public SpriteRenderer pelletSprite;
+    public GameManager gameManager;
+
+    public bool isGhostStartingNode = false;
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         if (transform.childCount > 0)
         {
             isPelletNode = true;
@@ -74,6 +79,11 @@ public class NodeController : MonoBehaviour
                 canMoveLeft = true;
                 nodeLeft = hitsLeft[i].collider.gameObject;
             }
+        }
+        if (isGhostStartingNode)
+        {
+            canMoveDown = true;
+            nodeDown = gameManager.ghostNodeCenter;
         }
 
     }
