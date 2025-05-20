@@ -12,6 +12,7 @@ public class MoveController : MonoBehaviour
     public bool canWarp = true;
     public bool isGhost = false;
 
+
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -61,12 +62,22 @@ public class MoveController : MonoBehaviour
             //Encuentra el siguiente nodo
             else
             {
+
                 if (currentNodeController.isGhostStartingNode && direction == "down"
                     && (!isGhost || GetComponent<EnemyController>().ghostNodeState != EnemyController.GhostNodesStatesEnum.respawing)
                 )
                 {
                     direction = lastMovingDirection;
                 }
+                //Validación para evitar bugs de que entraran a la caja de spawn
+                if (currentNodeController.isGhostStartingNode &&
+                        !isGhost && direction != "down")
+                {
+                    direction = lastMovingDirection;
+                    transform.position = currentNode.transform.position; // Se reubica al último nodo
+                }
+
+
 
                 GameObject newNode = currentNodeController.GetNodeFromDirection(direction);
                 if (newNode != null)
@@ -105,6 +116,11 @@ public class MoveController : MonoBehaviour
         NodeController nodeController = currentNode.GetComponent<NodeController>();
         GameObject nextNode = nodeController.GetNodeFromDirection(dir);
         return nextNode != null;
+    }
+    public void SetSpeed(float newspeed)
+    {
+        speed = newspeed;
+
     }
 
 

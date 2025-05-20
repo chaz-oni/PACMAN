@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 public class NodeController : MonoBehaviour
 {
+    [Header("Nodes check")]
     public bool canMoveLeft = false;
     public bool canMoveRigth = false;
     public bool canMoveUp = false;
     public bool canMoveDown = false;
+    [Header("Respawn Nodes")]
 
     public GameObject nodeLeft;
     public GameObject nodeRight;
     public GameObject nodeUp;
     public GameObject nodeDown;
 
+    [Header("Warp Nodes")]
     public bool isWarpRightNode = false;
     public bool isWarpLeftNode = false;
+    [Header("Collect Pellet")]
 
     public bool isPelletNode = false;
     public bool hasPellet = false;
@@ -22,6 +26,7 @@ public class NodeController : MonoBehaviour
     public GameManager gameManager;
 
     public bool isGhostStartingNode = false;
+    public bool isSideNode = false;
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
