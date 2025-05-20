@@ -103,17 +103,7 @@ public class EnemyController : MonoBehaviour
             //Scatter Mode, cuando el fantasama huye
             if (gameManager.currentGhostMode == GameManager.GhostMode.scatter)
             {
-                if (transform.position.x == scatterNodes[scatterNodeIndex].transform.position.x && transform.position.y == scatterNodes[scatterNodeIndex].transform.position.y)
-                {
-                    scatterNodeIndex++;
-                    if (scatterNodeIndex == scatterNodes.Length - 1)
-                    {
-                        scatterNodeIndex = 0;
-                    }
-
-                }
-                string direction = GetClosestDirection(scatterNodes[scatterNodeIndex].transform.position);
-                moveController.SetDirection(direction);
+                DeterminateGhosteScatterModeDirection();
 
 
             }
@@ -138,7 +128,7 @@ public class EnemyController : MonoBehaviour
                 }
                 else if (ghostType == GhostType.orange)
                 {
-                    DetermineOranmgeGhostDirection();
+                    DetermineOrangeGhostDirection();
                 }
 
             }
@@ -216,10 +206,25 @@ public class EnemyController : MonoBehaviour
                 else if (ghostNodeState == GhostNodesStatesEnum.starNode)
                 {
                     ghostNodeState = GhostNodesStatesEnum.movingNodes;
-                    moveController.SetDirection("right");
+                    moveController.SetDirection("left");
                 }
             }
         }
+
+    }
+    void DeterminateGhosteScatterModeDirection()
+    {
+        if (transform.position.x == scatterNodes[scatterNodeIndex].transform.position.x && transform.position.y == scatterNodes[scatterNodeIndex].transform.position.y)
+        {
+            scatterNodeIndex++;
+            if (scatterNodeIndex == scatterNodes.Length - 1)
+            {
+                scatterNodeIndex = 0;
+            }
+
+        }
+        string direction = GetClosestDirection(scatterNodes[scatterNodeIndex].transform.position);
+        moveController.SetDirection(direction);
 
     }
 
@@ -289,10 +294,66 @@ public class EnemyController : MonoBehaviour
 
     }
     //***********MOVIMIENTO DE CLYDE*********//
-    void DetermineOranmgeGhostDirection()
+    void DetermineOrangeGhostDirection()
     {
+        // if (moveController.currentNode == null)
+        // {
+        //     Debug.LogWarning("Clyde: currentNode es null.");
+        //     return;
+        // }
+
+        // float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
+        // float scatterThreshold = 0.35f * 8;
+
+        // Vector2 targetPosition;
+
+        // if (distance <= scatterThreshold)
+        // {
+        //     // Si Pacman está cerca, se comporta como Blinky
+        //     targetPosition = gameManager.pacman.transform.position;
+        // }
+        // else
+        // {
+        //     // Si Pacman está lejos, se va a su esquina Scatter
+        //     targetPosition = new Vector2(-13f, -15f); // esquina de Clyde
+        // }
+
+        // string direction = GetClosestDirection(targetPosition);
+
+        // if (!string.IsNullOrEmpty(direction))
+        // {
+        //     moveController.SetDirection(direction);
+        // }
+        // else
+        // {
+        //     Debug.LogWarning("Clyde no encontró dirección válida hacia el objetivo.");
+        // }
+        float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
+        float scatterThreshold = 0.35f * 8;
+        if (distance < 0)
+        {
+            distance *= -1;
+        }
+        if (distance <= scatterThreshold)
+        {
+            DetermineRedGhostDirection();
+        }
+        else
+        {
+            DeterminateGhosteScatterModeDirection();
+
+        }
+        // else
+        // {
+        //     DeterminateGhosteScatterModeDirection();
+        // }
 
     }
+
+
+
+
+
     //Función para obtener la dirección más corta para alcanzar otor nodo.
     string GetClosestDirection(Vector2 target)
     {
