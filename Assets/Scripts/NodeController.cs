@@ -33,6 +33,7 @@ public class NodeController : MonoBehaviour
 
         if (transform.childCount > 0)
         {
+            gameManager.GotPelletFromNodeController(this);
             isPelletNode = true;
             hasPellet = true;
             pelletSprite = GetComponentInChildren<SpriteRenderer>();
@@ -120,12 +121,21 @@ public class NodeController : MonoBehaviour
             return null;
         }
     }
+    public void RespawnPellet()
+    {
+        if (isPelletNode)
+        {
+            hasPellet = true;
+            pelletSprite.enabled = true;
+        }
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && isPelletNode)
         {
             hasPellet = false;
             pelletSprite.enabled = false;
+            gameManager.CollectedDots(this);
         }
     }
 }

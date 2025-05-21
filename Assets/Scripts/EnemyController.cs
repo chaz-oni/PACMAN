@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -14,6 +16,7 @@ public class EnemyController : MonoBehaviour
 
     }
     public GhostNodesStatesEnum ghostNodeState;
+    public GhostNodesStatesEnum startGhostNodeState;
     public GhostNodesStatesEnum respawnState;
     public enum GhostType
     {
@@ -39,6 +42,8 @@ public class EnemyController : MonoBehaviour
     public GameObject[] scatterNodes;
     public int scatterNodeIndex;
 
+    public bool leftHomeBefore = false;
+
     void Awake()
     {
         scatterNodeIndex = 0;
@@ -47,38 +52,64 @@ public class EnemyController : MonoBehaviour
         //Se determina el movimiento específico de cada fantasma
         if (ghostType == GhostType.red)
         {
-            ghostNodeState = GhostNodesStatesEnum.starNode;
+            startGhostNodeState = GhostNodesStatesEnum.starNode;
             respawnState = GhostNodesStatesEnum.centerNode;
             startingNode = ghostNodeStart;
             readyToLeaveHome = true;
+            leftHomeBefore = true;
 
         }
         else if (ghostType == GhostType.pink)
         {
-            ghostNodeState = GhostNodesStatesEnum.centerNode;
+            startGhostNodeState = GhostNodesStatesEnum.centerNode;
             respawnState = GhostNodesStatesEnum.centerNode;
             startingNode = ghostNodeCenter;
         }
         else if (ghostType == GhostType.blue)
         {
-            ghostNodeState = GhostNodesStatesEnum.leftNode;
+            startGhostNodeState = GhostNodesStatesEnum.leftNode;
             respawnState = GhostNodesStatesEnum.leftNode;
             startingNode = ghostNodeLeft;
         }
         else if (ghostType == GhostType.orange)
         {
-            ghostNodeState = GhostNodesStatesEnum.rightNode;
+            startGhostNodeState = GhostNodesStatesEnum.rightNode;
             respawnState = GhostNodesStatesEnum.rightNode;
             startingNode = ghostNodeRight;
         }
+
         moveController.currentNode = startingNode;
         transform.position = startingNode.transform.position;
+
+    }
+    public void Setup()
+    {
+        ghostNodeState = startGhostNodeState;
+        moveController.currentNode = startingNode;
+        transform.position = startingNode.transform.position;
+        scatterNodeIndex = 0;
+        isFrightened = false;
+
+        if (ghostType == GhostType.red)
+        {
+            readyToLeaveHome = true;
+            leftHomeBefore = true;
+        }
+        else if (ghostType == GhostType.pink)
+        {
+            readyToLeaveHome = true;
+        }
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!gameManager.gameIsRunnig)
+        {
+            return;
+        }
         if (testRespawn == true)
         {
             //readyToLeaveHome = false;
@@ -100,6 +131,7 @@ public class EnemyController : MonoBehaviour
     {
         if (ghostNodeState == GhostNodesStatesEnum.movingNodes)
         {
+            leftHomeBefore = true;
             //Scatter Mode, cuando el fantasama huye
             if (gameManager.currentGhostMode == GameManager.GhostMode.scatter)
             {
@@ -109,6 +141,9 @@ public class EnemyController : MonoBehaviour
             }
             else if (isFrightened)
             {
+                string direction = GetRandomDirection();
+                moveController.SetDirection(direction);
+
 
             }
             //Chase Mode, el fantasma persigue a pacman
@@ -211,6 +246,32 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+    }
+
+    string GetRandomDirection()
+    {
+        List<string> possibleDirection = new List<string>();
+        NodeController nodeController = moveController.currentNode.GetComponent<NodeController>();
+        if (nodeController.canMoveDown && moveController.lastMovingDirection != "up")
+        {
+            possibleDirection.Add("down");
+        }
+        if (nodeController.canMoveUp && moveController.lastMovingDirection != "down")
+        {
+            possibleDirection.Add("up");
+        }
+        if (nodeController.canMoveLeft && moveController.lastMovingDirection != "right")
+        {
+            possibleDirection.Add("left");
+        }
+        if (nodeController.canMoveRigth && moveController.lastMovingDirection != "left")
+        {
+            possibleDirection.Add("right");
+        }
+        string direction = "";
+        int randomDirectionIndex = Random.Range(1, possibleDirection.Count);
+        direction = possibleDirection[randomDirectionIndex];
+        return direction;
     }
     void DeterminateGhosteScatterModeDirection()
     {

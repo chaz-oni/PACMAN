@@ -3,20 +3,34 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     MoveController movementController;
+    public GameObject startNode;
+    public GameManager gameManager;
 
     Animator animator;
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         animator = GetComponentInChildren<Animator>();
         movementController = GetComponent<MoveController>();
         transform.localScale = new Vector3(-1, 1, 1);
         movementController.lastMovingDirection = "left";
+        startNode = movementController.currentNode;
 
+    }
+
+    public void Setup()
+    {
+        movementController.currentNode = startNode;
+        movementController.lastMovingDirection = "left";
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!gameManager.gameIsRunnig)
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (movementController.CanMoveInDirection("left"))
