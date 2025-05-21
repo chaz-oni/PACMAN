@@ -144,7 +144,6 @@ public class EnemyController : MonoBehaviour
                 string direction = GetRandomDirection();
                 moveController.SetDirection(direction);
 
-
             }
             //Chase Mode, el fantasma persigue a pacman
             else
@@ -165,10 +164,7 @@ public class EnemyController : MonoBehaviour
                 {
                     DetermineOrangeGhostDirection();
                 }
-
             }
-
-
         }
 
         else if (ghostNodeState == GhostNodesStatesEnum.respawing)
