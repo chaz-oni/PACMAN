@@ -3,48 +3,72 @@ using System.Collections;
 using System.Collections.Generic;
 public class NodeController : MonoBehaviour
 {
+    [Header("Nodes check")]
     public bool canMoveLeft = false;
     public bool canMoveRigth = false;
     public bool canMoveUp = false;
     public bool canMoveDown = false;
+    [Header("Respawn Nodes")]
+
     public GameObject nodeLeft;
     public GameObject nodeRight;
     public GameObject nodeUp;
     public GameObject nodeDown;
 
-    void Start()
+    [Header("Warp Nodes")]
+    public bool isWarpRightNode = false;
+    public bool isWarpLeftNode = false;
+    [Header("Collect Pellet")]
+
+    public bool isPelletNode = false;
+    public bool hasPellet = false;
+    public SpriteRenderer pelletSprite;
+    public GameManager gameManager;
+
+    public bool isGhostStartingNode = false;
+    public bool isSideNode = false;
+    void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (transform.childCount > 0)
+        {
+            gameManager.GotPelletFromNodeController(this);
+            isPelletNode = true;
+            hasPellet = true;
+            pelletSprite = GetComponentInChildren<SpriteRenderer>();
+        }
         RaycastHit2D[] hitsDown;
         //Raycast hacia abajo
         hitsDown = Physics2D.RaycastAll(transform.position, -Vector2.up);
         for (int i = 0; i < hitsDown.Length; i++)
         {
             float distance = Mathf.Abs(hitsDown[i].point.y - transform.position.y);
-            if (distance < 0.4f)
+            if (distance < 0.4f && hitsDown[i].collider.tag == "Node")
             {
                 canMoveDown = true;
                 nodeDown = hitsDown[i].collider.gameObject;
             }
         }
         RaycastHit2D[] hitsUp;
-        //Raycast hacia abajo
-        hitsUp = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        //Raycast hacia arriba
+        hitsUp = Physics2D.RaycastAll(transform.position, Vector2.up);
         for (int i = 0; i < hitsUp.Length; i++)
         {
             float distance = Mathf.Abs(hitsUp[i].point.y - transform.position.y);
-            if (distance < 0.4f)
+            if (distance < 0.4f && hitsUp[i].collider.tag == "Node")
             {
                 canMoveUp = true;
                 nodeUp = hitsUp[i].collider.gameObject;
             }
         }
         RaycastHit2D[] hitsRight;
-        //Raycast hacia abajo
-        hitsRight = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        //Raycast hacia la derecha
+        hitsRight = Physics2D.RaycastAll(transform.position, Vector2.right);
         for (int i = 0; i < hitsRight.Length; i++)
         {
             float distance = Mathf.Abs(hitsRight[i].point.x - transform.position.x);
-            if (distance < 0.4f)
+            if (distance < 0.4f && hitsRight[i].collider.tag == "Node")
             {
                 canMoveRigth = true;
                 nodeRight = hitsRight[i].collider.gameObject;
@@ -52,15 +76,20 @@ public class NodeController : MonoBehaviour
         }
         RaycastHit2D[] hitsLeft;
         //Raycast hacia abajo
-        hitsLeft = Physics2D.RaycastAll(transform.position, -Vector2.up);
+        hitsLeft = Physics2D.RaycastAll(transform.position, -Vector2.right);
         for (int i = 0; i < hitsLeft.Length; i++)
         {
             float distance = Mathf.Abs(hitsLeft[i].point.x - transform.position.x);
-            if (distance < 0.4f)
+            if (distance < 0.4f && hitsLeft[i].collider.tag == "Node")
             {
                 canMoveLeft = true;
                 nodeLeft = hitsLeft[i].collider.gameObject;
             }
+        }
+        if (isGhostStartingNode)
+        {
+            canMoveDown = true;
+            nodeDown = gameManager.ghostNodeCenter;
         }
 
     }
@@ -83,13 +112,30 @@ public class NodeController : MonoBehaviour
         {
             return nodeUp;
         }
-        if (direction == "doen" && canMoveDown)
+        if (direction == "down" && canMoveDown)
         {
             return nodeDown;
         }
         else
         {
             return null;
+        }
+    }
+    public void RespawnPellet()
+    {
+        if (isPelletNode)
+        {
+            hasPellet = true;
+            pelletSprite.enabled = true;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && isPelletNode)
+        {
+            hasPellet = false;
+            pelletSprite.enabled = false;
+            gameManager.CollectedDots(this);
         }
     }
 }
