@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     public AudioSource startGameAudio;
 
     public int currentMunch = 0;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public int score;
     public bool hadDeadOnThisLevel = false;
 
@@ -149,16 +150,16 @@ public class GameManager : MonoBehaviour
 
     public void CollectedDots(NodeController nodeController)
     {
-        if (currentMunch == 0)
-        {
-            munch1.Play();
-            currentMunch = 1;
-        }
-        else if (currentMunch == 1)
-        {
-            munch2.Play();
-            currentMunch = 0;
-        }
+        // if (currentMunch == 0)
+        // {
+        //     munch1.Play();
+        //     currentMunch = 1;
+        // }
+        // else if (currentMunch == 1)
+        // {
+        //     munch2.Play();
+        //     currentMunch = 0;
+        // }
         pelletsleft--;
         pelletCollectedOnThisLife++;
         int requiredBluePellets = 0;
