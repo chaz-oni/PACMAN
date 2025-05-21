@@ -31,13 +31,27 @@ public class NodeController : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        if (transform.childCount > 0)
+        foreach (Transform child in transform)
         {
-            gameManager.GotPelletFromNodeController(this);
-            isPelletNode = true;
-            hasPellet = true;
-            pelletSprite = GetComponentInChildren<SpriteRenderer>();
+            if (child.name == "Pellet")
+            {
+                pelletSprite = child.GetComponent<SpriteRenderer>();
+                isPelletNode = true;
+
+                // Verifica si el pellet aún está visible
+                if (pelletSprite != null && pelletSprite.enabled)
+                {
+                    hasPellet = true;
+                    gameManager.GotPelletFromNodeController(this);
+                }
+                else
+                {
+                    hasPellet = false;
+                }
+                break;
+            }
         }
+
         RaycastHit2D[] hitsDown;
         //Raycast hacia abajo
         hitsDown = Physics2D.RaycastAll(transform.position, -Vector2.up);
@@ -131,11 +145,11 @@ public class NodeController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && isPelletNode)
+        if (collision.tag == "Player" && isPelletNode && hasPellet)
         {
             hasPellet = false;
             pelletSprite.enabled = false;
-            gameManager.CollectedDots(this);
+            StartCoroutine(gameManager.CollectedDots(this));
         }
     }
 }

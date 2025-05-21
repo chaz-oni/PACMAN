@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
         float waitTimer = 1f;
         if (clearedLevel || newGame)
         {
+            pelletsleft = totalPellets;
             waitTimer = 4f;
             //Pellet Respawn
             for (int i = 0; i < nodeControllers.Count; i++)
@@ -127,6 +128,12 @@ public class GameManager : MonoBehaviour
         gameIsRunnig = true;
 
     }
+    void StopGame()
+    {
+        gameIsRunnig = false;
+        pacman.GetComponent<PlayerController>().StopAllCoroutines();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -135,9 +142,12 @@ public class GameManager : MonoBehaviour
     }
     public void GotPelletFromNodeController(NodeController nodeController)
     {
-        nodeControllers.Add(nodeController);
-        totalPellets++;
-        pelletsleft++;
+        if (nodeController.hasPellet)
+        {
+            nodeControllers.Add(nodeController); // Guarda referencia al nodo con pellet
+            totalPellets++;                      // Suma al total
+            pelletsleft++;                       // También al contador de los que faltan
+        }
 
     }
 
@@ -148,7 +158,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CollectedDots(NodeController nodeController)
+    public IEnumerator CollectedDots(NodeController nodeController)
     {
         // if (currentMunch == 0)
         // {
@@ -185,5 +195,37 @@ public class GameManager : MonoBehaviour
 
         }
         AddScore(10);
+        if (pelletsleft == 0)
+        {
+            currentLevel++;
+            clearedLevel = true;
+            StopGame();
+            yield return new WaitForSeconds(1);
+            StartCoroutine(Setup());
+        }
+    }
+
+
+    public IEnumerator PlayerEaten()
+    {
+        hadDeadOnThisLevel = true;
+        StopGame();
+        yield return new WaitForSeconds(1);
+
+        redGhostController.SetVisible(false);
+        pinkGhostController.SetVisible(false);
+        blueGhostController.SetVisible(false);
+        orangeGhostController.SetVisible(false);
+
+        pacman.GetComponent<PlayerController>().Death();
+        yield return new WaitForSeconds(3);
+
+        lives--;
+        if (lives <= 0)
+        {
+            newGame = true;
+            yield return new WaitForSeconds(3);
+        }
+        StartCoroutine(Setup());
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -43,9 +44,13 @@ public class EnemyController : MonoBehaviour
     public int scatterNodeIndex;
 
     public bool leftHomeBefore = false;
+    public bool isVisible = true;
+
+    public SpriteRenderer ghostSprite;
 
     void Awake()
     {
+        ghostSprite = GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         moveController = GetComponent<MoveController>();
@@ -85,10 +90,13 @@ public class EnemyController : MonoBehaviour
     public void Setup()
     {
         ghostNodeState = startGhostNodeState;
+        readyToLeaveHome = false;
         moveController.currentNode = startingNode;
         transform.position = startingNode.transform.position;
+
         scatterNodeIndex = 0;
         isFrightened = false;
+        leftHomeBefore = false;
 
         if (ghostType == GhostType.red)
         {
@@ -99,13 +107,23 @@ public class EnemyController : MonoBehaviour
         {
             readyToLeaveHome = true;
         }
-
+        SetVisible(true);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Show Spritess
+        if (isVisible)
+        {
+            ghostSprite.enabled = true;
+        }
+        else
+        {
+            ghostSprite.enabled = false;
+
+        }
         if (!gameManager.gameIsRunnig)
         {
             return;
@@ -357,38 +375,7 @@ public class EnemyController : MonoBehaviour
     //***********MOVIMIENTO DE CLYDE*********//
     void DetermineOrangeGhostDirection()
     {
-        // if (moveController.currentNode == null)
-        // {
-        //     Debug.LogWarning("Clyde: currentNode es null.");
-        //     return;
-        // }
 
-        // float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
-        // float scatterThreshold = 0.35f * 8;
-
-        // Vector2 targetPosition;
-
-        // if (distance <= scatterThreshold)
-        // {
-        //     // Si Pacman está cerca, se comporta como Blinky
-        //     targetPosition = gameManager.pacman.transform.position;
-        // }
-        // else
-        // {
-        //     // Si Pacman está lejos, se va a su esquina Scatter
-        //     targetPosition = new Vector2(-13f, -15f); // esquina de Clyde
-        // }
-
-        // string direction = GetClosestDirection(targetPosition);
-
-        // if (!string.IsNullOrEmpty(direction))
-        // {
-        //     moveController.SetDirection(direction);
-        // }
-        // else
-        // {
-        //     Debug.LogWarning("Clyde no encontró dirección válida hacia el objetivo.");
-        // }
         float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
         float scatterThreshold = 0.35f * 8;
         if (distance < 0)
@@ -404,10 +391,7 @@ public class EnemyController : MonoBehaviour
             DeterminateGhosteScatterModeDirection();
 
         }
-        // else
-        // {
-        //     DeterminateGhosteScatterModeDirection();
-        // }
+
 
     }
 
@@ -467,5 +451,24 @@ public class EnemyController : MonoBehaviour
             }
         }
         return newDirection;
+    }
+    public void SetVisible(bool newVisible)
+    {
+        isVisible = newVisible;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            if (isFrightened)
+            {
+
+            }
+            else
+            {
+                StartCoroutine(gameManager.PlayerEaten());
+
+            }
+        }
     }
 }
