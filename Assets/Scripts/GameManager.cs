@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public int currentMunch = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI gameoverText;
 
     public int score;
     public bool hadDeadOnThisLevel = false;
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         newGame = true;
         clearedLevel = false;
 
-
+        gameoverText.enabled = false;
         redGhostController = redGhost.GetComponent<EnemyController>();
         pinkGhostController = pinkGhost.GetComponent<EnemyController>();
         blueGhostController = blueGhost.GetComponent<EnemyController>();
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
         newGame = false;
         clearedLevel = false;
         hadDeadOnThisLevel = false;
+        gameoverText.enabled = false;
         yield return new WaitForSeconds(waitTimer);
         StartCoroutine(SpawnCherryRoutine());
 
@@ -242,7 +244,7 @@ public class GameManager : MonoBehaviour
             if (shouldReleaseBlue)
             {
                 blueGhostController.readyToLeaveHome = true;
-                Debug.Log("Blue ghost released!"); // Para depuración
+                Debug.Log("Blue ghost released!");
             }
         }
 
@@ -256,7 +258,7 @@ public class GameManager : MonoBehaviour
             if (shouldReleaseOrange)
             {
                 orangeGhostController.readyToLeaveHome = true;
-                Debug.Log("Orange ghost released!"); // Para depuración
+                Debug.Log("Orange ghost released!");
             }
         }
     }
@@ -278,9 +280,25 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
+        int previousScore = score;
         score += amount;
-        scoreText.text = "Score " + score.ToString();
 
+        scoreText.text = "Score " + score.ToString();
+        CheckForExtraLife(previousScore, score);
+
+    }
+    private void CheckForExtraLife(int previousScore, int currentScore)
+    {
+        if (lives >= 3) return; // No exceder el máximo de vidas
+
+        // Calcular los múltiplos de 10,000 entre el puntaje anterior y el actual
+        int previousThreshold = previousScore / 1000;
+        int currentThreshold = currentScore / 1000;
+
+        if (currentThreshold > previousThreshold)
+        {
+            SetLives(lives + 1);
+        }
     }
 
     public IEnumerator CollectedDots(NodeController nodeController)
@@ -323,11 +341,14 @@ public class GameManager : MonoBehaviour
         AddScore(10);
         if (pelletsleft == 0)
         {
-            StartCoroutine(Setup());
+            // StartCoroutine(Setup());
             currentLevel++;
             clearedLevel = true;
             StopGame();
             yield return new WaitForSeconds(1);
+
+            yield return StartCoroutine(Setup());
+
 
         }
 
@@ -380,11 +401,13 @@ public class GameManager : MonoBehaviour
 
         pacman.GetComponent<PlayerController>().Death();
 
+
         yield return new WaitForSeconds(3);
 
         SetLives(lives - 1);
         if (lives <= 0)
         {
+            gameoverText.enabled = true;
             newGame = true;
             yield return new WaitForSeconds(3);
         }
