@@ -17559,8 +17559,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278253567
+  m_fontColor: {r: 1, g: 0.9667849, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -41649,7 +41649,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1405475878}
   - {fileID: 1279069356}
   - {fileID: 1400881777}
   - {fileID: 1765557387}
@@ -41658,6 +41657,7 @@ RectTransform:
   - {fileID: 1056150542}
   - {fileID: 1767614640}
   - {fileID: 1092336161}
+  - {fileID: 1405475878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

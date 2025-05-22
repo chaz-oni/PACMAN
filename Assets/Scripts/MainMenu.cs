@@ -31,20 +31,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     public void FetchScore()
     {
-        Debug.Log("entering score");
         Score = !Score;
 
         Time.timeScale = Score ? 0f : 1f;
 
-        if (Score != null)
+        if (scorePanel != null)
         {
-            scorePanel.SetActive(scorePanel);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            // Disable panel
-            Debug.Log("exit score");
+            scorePanel.SetActive(Score);
         }
     }
 
