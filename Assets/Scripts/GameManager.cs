@@ -74,6 +74,12 @@ public class GameManager : MonoBehaviour
     public bool runningTimmer;
 
     public int powerPelletMultiplyer = 1;
+    [Header("Fruit Settings")]
+    public GameObject cherryPrefab;
+    public Transform fruitSpawnPoint;
+    public float fruitSpawnInterval = 20f;
+    private GameObject currentCherry;
+
 
     void Awake()
     {
@@ -144,6 +150,7 @@ public class GameManager : MonoBehaviour
         clearedLevel = false;
         hadDeadOnThisLevel = false;
         yield return new WaitForSeconds(waitTimer);
+        StartCoroutine(SpawnCherryRoutine());
 
         StartGame();
     }
@@ -191,6 +198,19 @@ public class GameManager : MonoBehaviour
                     currentGhostMode = GhostMode.chase;
                 }
             }
+            if (ghostModeTimer >= ghostModeTimers[ghostModeTiemrIndex])
+            {
+                ghostModeTimer = 0;
+                ghostModeTiemrIndex++;
+                currentGhostMode = (currentGhostMode == GhostMode.chase) ? GhostMode.scatter : GhostMode.chase;
+
+                if (ghostModeTiemrIndex == ghostModeTimers.Length)
+                {
+                    completeTimmer = true;
+                    runningTimmer = false;
+                    currentGhostMode = GhostMode.chase;
+                }
+            }
         }
         if (isPowerPelletRunning)
         {
@@ -202,9 +222,49 @@ public class GameManager : MonoBehaviour
                 powerPelletMultiplyer = 1;
             }
         }
+        CheckGhostReleaseConditions();
 
 
     }
+    void CheckGhostReleaseConditions()
+    {
+
+        int requiredBluePellets = hadDeadOnThisLevel ? 12 : 30;
+        int requiredOrangePellets = hadDeadOnThisLevel ? 32 : 60;
+
+        // Para el fantasma azul
+        if (!blueGhostController.leftHomeBefore)
+        {
+            bool shouldReleaseBlue = pelletCollectedOnThisLife >= requiredBluePellets ||
+                                pelletsleft < requiredBluePellets ||
+                                !AreEnoughPelletsRemaining(requiredBluePellets);
+
+            if (shouldReleaseBlue)
+            {
+                blueGhostController.readyToLeaveHome = true;
+                Debug.Log("Blue ghost released!"); // Para depuración
+            }
+        }
+
+        // Para el fantasma naranja
+        if (!orangeGhostController.leftHomeBefore)
+        {
+            bool shouldReleaseOrange = pelletCollectedOnThisLife >= requiredOrangePellets ||
+                                    pelletsleft < requiredOrangePellets ||
+                                    !AreEnoughPelletsRemaining(requiredOrangePellets);
+
+            if (shouldReleaseOrange)
+            {
+                orangeGhostController.readyToLeaveHome = true;
+                Debug.Log("Orange ghost released!"); // Para depuración
+            }
+        }
+    }
+    public bool AreEnoughPelletsRemaining(int required)
+    {
+        return (totalPellets - pelletCollectedOnThisLife) >= required;
+    }
+
     public void GotPelletFromNodeController(NodeController nodeController)
     {
         if (nodeController.hasPellet)
@@ -237,28 +297,29 @@ public class GameManager : MonoBehaviour
         // }
         pelletsleft--;
         pelletCollectedOnThisLife++;
-        int requiredBluePellets = 0;
-        int requiredOrangePellets = 0;
-        if (hadDeadOnThisLevel)
-        {
-            requiredBluePellets = 12;
-            requiredOrangePellets = 32;
-        }
-        else
-        {
-            requiredBluePellets = 30;
-            requiredOrangePellets = 60;
-        }
-        if (pelletCollectedOnThisLife >= requiredBluePellets && !blueGhost.GetComponent<EnemyController>().leftHomeBefore)
-        {
-            blueGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+        // int requiredBluePellets = 0;
+        // int requiredOrangePellets = 0;
+        // if (hadDeadOnThisLevel)
+        // {
+        //     requiredBluePellets = 12;
+        //     requiredOrangePellets = 32;
+        // }
+        // else
+        // {
+        //     requiredBluePellets = 30;
+        //     requiredOrangePellets = 60;
+        // }
+        // if (pelletCollectedOnThisLife >= requiredBluePellets && !blueGhost.GetComponent<EnemyController>().leftHomeBefore)
+        // {
+        //     blueGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
 
-        }
-        if (pelletCollectedOnThisLife >= requiredOrangePellets && !orangeGhost.GetComponent<EnemyController>().leftHomeBefore)
-        {
-            orangeGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
+        // }
+        // if (pelletCollectedOnThisLife >= requiredOrangePellets && !orangeGhost.GetComponent<EnemyController>().leftHomeBefore)
+        // {
+        //     orangeGhost.GetComponent<EnemyController>().readyToLeaveHome = true;
 
-        }
+        // }
+        CheckGhostReleaseConditions();
         AddScore(10);
         if (pelletsleft == 0)
         {
@@ -274,6 +335,7 @@ public class GameManager : MonoBehaviour
         {
             isPowerPelletRunning = true;
             currentPowerPelletTime = 0;
+            powerPelletMultiplyer += 1;
 
 
             redGhostController.SetFrightened(true);
@@ -293,6 +355,8 @@ public class GameManager : MonoBehaviour
 
     public void GhostEaten()
     {
+        AddScore(400 * powerPelletMultiplyer);
+        powerPelletMultiplyer++;
         StartCoroutine(PauseGame(1));
     }
     public void SetLives(int newLives)
@@ -326,4 +390,17 @@ public class GameManager : MonoBehaviour
         }
         StartCoroutine(Setup());
     }
+    private IEnumerator SpawnCherryRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(fruitSpawnInterval);
+
+            if (gameIsRunnig && currentCherry == null)
+            {
+                currentCherry = Instantiate(cherryPrefab, fruitSpawnPoint.position, Quaternion.identity);
+            }
+        }
+    }
+
 }
