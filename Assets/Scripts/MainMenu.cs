@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
+    private bool Score = false;
+    public GameObject scorePanel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,9 +19,32 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             Play();
         }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            FetchScore();
+        }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             Exit();
+        }
+    }
+
+    public void FetchScore()
+    {
+        Debug.Log("entering score");
+        Score = !Score;
+
+        Time.timeScale = Score ? 0f : 1f;
+
+        if (Score != null)
+        {
+            scorePanel.SetActive(scorePanel);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            // Disable panel
+            Debug.Log("exit score");
         }
     }
 
