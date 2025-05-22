@@ -8,7 +8,6 @@ public class NodeController : MonoBehaviour
     public bool canMoveRigth = false;
     public bool canMoveUp = false;
     public bool canMoveDown = false;
-    [Header("Respawn Nodes")]
 
     public GameObject nodeLeft;
     public GameObject nodeRight;
@@ -27,6 +26,9 @@ public class NodeController : MonoBehaviour
 
     public bool isGhostStartingNode = false;
     public bool isSideNode = false;
+
+    public bool isPowerPellet = false;
+    public float powePelletLinkingTimer = 0;
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -110,6 +112,19 @@ public class NodeController : MonoBehaviour
 
     void Update()
     {
+        if (!gameManager.gameIsRunnig)
+        {
+            return;
+        }
+        if (isPowerPellet && hasPellet)
+        {
+            powePelletLinkingTimer += Time.deltaTime;
+            if (powePelletLinkingTimer >= 0.1f)
+            {
+                powePelletLinkingTimer = 0;
+                pelletSprite.enabled = !pelletSprite.enabled;
+            }
+        }
 
     }
     public GameObject GetNodeFromDirection(string direction)
@@ -145,7 +160,7 @@ public class NodeController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && isPelletNode && hasPellet)
+        if (collision.tag == "Player" && hasPellet)
         {
             hasPellet = false;
             pelletSprite.enabled = false;

@@ -48,6 +48,8 @@ public class EnemyController : MonoBehaviour
 
     public SpriteRenderer ghostSprite;
 
+    //AWAKE
+
     void Awake()
     {
         ghostSprite = GetComponent<SpriteRenderer>();
@@ -87,6 +89,8 @@ public class EnemyController : MonoBehaviour
         transform.position = startingNode.transform.position;
 
     }
+
+    //SETUP de inicio de juego
     public void Setup()
     {
         ghostNodeState = startGhostNodeState;
@@ -114,15 +118,32 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ghostNodeState != GhostNodesStatesEnum.movingNodes || !gameManager.isPowerPelletRunning)
+        {
+            isFrightened = false;
+        }
+
         //Show Spritess
         if (isVisible)
         {
+            if (ghostNodeState != GhostNodesStatesEnum.respawing)
+            {
+                ghostSprite.enabled = true;
+            }
+            else
+            {
+                ghostSprite.enabled = false;
+            }
             ghostSprite.enabled = true;
         }
         else
         {
             ghostSprite.enabled = false;
 
+        }
+        if (!gameManager.isPowerPelletRunning)
+        {
+            isFrightened = false;
         }
         if (!gameManager.gameIsRunnig)
         {
@@ -145,18 +166,26 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //Cuando pacaman come los power pellets
+    public void SetFrightened(bool newIsFrightened)
+    {
+        isFrightened = newIsFrightened;
+    }
+
+    //Alcanzar el centro de los nodos.
     public void ReachCenterNOde(NodeController nodeController)
     {
         if (ghostNodeState == GhostNodesStatesEnum.movingNodes)
         {
             leftHomeBefore = true;
-            //Scatter Mode, cuando el fantasama huye
+            //Scatter Mode, se mueve en sus nodos de scatter
             if (gameManager.currentGhostMode == GameManager.GhostMode.scatter)
             {
                 DeterminateGhosteScatterModeDirection();
 
 
             }
+            //Se mueve de forma aleatoria
             else if (isFrightened)
             {
                 string direction = GetRandomDirection();
@@ -266,6 +295,8 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //*****Direción random para cuando huyen*****//
+
     string GetRandomDirection()
     {
         List<string> possibleDirection = new List<string>();
@@ -287,7 +318,11 @@ public class EnemyController : MonoBehaviour
             possibleDirection.Add("right");
         }
         string direction = "";
-        int randomDirectionIndex = Random.Range(1, possibleDirection.Count);
+        int randomDirectionIndex = Random.Range(0, possibleDirection.Count);
+        if (randomDirectionIndex < 0)
+        {
+            randomDirectionIndex *= -1;
+        }
         direction = possibleDirection[randomDirectionIndex];
         return direction;
     }
@@ -458,10 +493,12 @@ public class EnemyController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && ghostNodeState != GhostNodesStatesEnum.respawing)
         {
             if (isFrightened)
             {
+                gameManager.GhostEaten();
+                ghostNodeState = GhostNodesStatesEnum.respawing;
 
             }
             else

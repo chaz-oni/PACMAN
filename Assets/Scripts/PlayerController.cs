@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
         movementController.lastMovingDirection = "left";
         startNode = movementController.currentNode;
 
+
     }
 
     public void Setup()
