@@ -323,11 +323,14 @@ public class GameManager : MonoBehaviour
         AddScore(10);
         if (pelletsleft == 0)
         {
-            StartCoroutine(Setup());
+            // StartCoroutine(Setup());
             currentLevel++;
             clearedLevel = true;
             StopGame();
             yield return new WaitForSeconds(1);
+
+            yield return StartCoroutine(Setup());
+
 
         }
 
