@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
             if (shouldReleaseBlue)
             {
                 blueGhostController.readyToLeaveHome = true;
-                Debug.Log("Blue ghost released!"); // Para depuración
+                Debug.Log("Blue ghost released!");
             }
         }
 
@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
             if (shouldReleaseOrange)
             {
                 orangeGhostController.readyToLeaveHome = true;
-                Debug.Log("Orange ghost released!"); // Para depuración
+                Debug.Log("Orange ghost released!");
             }
         }
     }
@@ -278,9 +278,25 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
+        int previousScore = score;
         score += amount;
-        scoreText.text = "Score " + score.ToString();
 
+        scoreText.text = "Score " + score.ToString();
+        CheckForExtraLife(previousScore, score);
+
+    }
+    private void CheckForExtraLife(int previousScore, int currentScore)
+    {
+        if (lives >= 3) return; // No exceder el máximo de vidas
+
+        // Calcular los múltiplos de 10,000 entre el puntaje anterior y el actual
+        int previousThreshold = previousScore / 1000;
+        int currentThreshold = currentScore / 1000;
+
+        if (currentThreshold > previousThreshold)
+        {
+            SetLives(lives + 1);
+        }
     }
 
     public IEnumerator CollectedDots(NodeController nodeController)
