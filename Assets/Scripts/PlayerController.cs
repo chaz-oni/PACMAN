@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     MoveController movementController;
     public GameObject startNode;
     public GameManager gameManager;
+    public AudioSource death;
 
     public Animator animator;
     void Awake()
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Death()
     {
+        death.Play();
         animator.SetBool("Pacman", false);
     }
 }
