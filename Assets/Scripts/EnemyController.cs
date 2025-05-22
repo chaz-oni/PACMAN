@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public Animator ghost;
     public enum GhostNodesStatesEnum
     {
         respawing,
@@ -146,14 +147,16 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
-        if (gameManager.powerPelletTimer - gameManager.currentPowerPelletTime <= 3)
+
+        if (isFrightened)
         {
-            //animator de parpadeo
+            ghost.SetBool("vulnerable", true);
         }
         else
         {
-            //quita el parpadeo animator.setbool
+            ghost.SetBool("vulnerable", false);
         }
+
         if (testRespawn == true)
         {
             //readyToLeaveHome = false;

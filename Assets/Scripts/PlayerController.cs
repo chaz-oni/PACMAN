@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
     public void Death()
     {
         death.Play();
+        animator.SetBool("pacman death", true);
         animator.SetBool("Pacman", false);
     }
 }
