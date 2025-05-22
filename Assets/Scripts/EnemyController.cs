@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -43,9 +41,15 @@ public class EnemyController : MonoBehaviour
     public int scatterNodeIndex;
 
     public bool leftHomeBefore = false;
+    public bool isVisible = true;
+
+    public SpriteRenderer ghostSprite;
+
+    //AWAKE
 
     void Awake()
     {
+        ghostSprite = GetComponent<SpriteRenderer>();
         scatterNodeIndex = 0;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         moveController = GetComponent<MoveController>();
@@ -82,13 +86,18 @@ public class EnemyController : MonoBehaviour
         transform.position = startingNode.transform.position;
 
     }
+
+    //SETUP de inicio de juego
     public void Setup()
     {
         ghostNodeState = startGhostNodeState;
+        readyToLeaveHome = false;
         moveController.currentNode = startingNode;
         transform.position = startingNode.transform.position;
+
         scatterNodeIndex = 0;
         isFrightened = false;
+        leftHomeBefore = false;
 
         if (ghostType == GhostType.red)
         {
@@ -99,16 +108,51 @@ public class EnemyController : MonoBehaviour
         {
             readyToLeaveHome = true;
         }
-
+        SetVisible(true);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ghostNodeState != GhostNodesStatesEnum.movingNodes || !gameManager.isPowerPelletRunning)
+        {
+            isFrightened = false;
+        }
+
+        //Show Spritess
+        if (isVisible)
+        {
+            if (ghostNodeState != GhostNodesStatesEnum.respawing)
+            {
+                ghostSprite.enabled = true;
+            }
+            else
+            {
+                ghostSprite.enabled = false;
+            }
+            ghostSprite.enabled = true;
+        }
+        else
+        {
+            ghostSprite.enabled = false;
+
+        }
+        if (!gameManager.isPowerPelletRunning)
+        {
+            isFrightened = false;
+        }
         if (!gameManager.gameIsRunnig)
         {
             return;
+        }
+        if (gameManager.powerPelletTimer - gameManager.currentPowerPelletTime <= 3)
+        {
+            //animator de parpadeo
+        }
+        else
+        {
+            //quita el parpadeo animator.setbool
         }
         if (testRespawn == true)
         {
@@ -122,23 +166,43 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            moveController.SetSpeed(1);
+            if (isFrightened)
+            {
+                moveController.SetSpeed(1);
+            }
+            else if (ghostNodeState == GhostNodesStatesEnum.respawing)
+            {
+                moveController.SetSpeed(5);
+            }
+            else
+            {
+                moveController.SetSpeed(2);
+            }
+
         }
 
     }
 
+    //Cuando pacaman come los power pellets
+    public void SetFrightened(bool newIsFrightened)
+    {
+        isFrightened = newIsFrightened;
+    }
+
+    //Alcanzar el centro de los nodos.
     public void ReachCenterNOde(NodeController nodeController)
     {
         if (ghostNodeState == GhostNodesStatesEnum.movingNodes)
         {
             leftHomeBefore = true;
-            //Scatter Mode, cuando el fantasama huye
+            //Scatter Mode, se mueve en sus nodos de scatter
             if (gameManager.currentGhostMode == GameManager.GhostMode.scatter)
             {
                 DeterminateGhosteScatterModeDirection();
 
 
             }
+            //Se mueve de forma aleatoria
             else if (isFrightened)
             {
                 string direction = GetRandomDirection();
@@ -244,6 +308,8 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //*****Direción random para cuando huyen*****//
+
     string GetRandomDirection()
     {
         List<string> possibleDirection = new List<string>();
@@ -265,7 +331,11 @@ public class EnemyController : MonoBehaviour
             possibleDirection.Add("right");
         }
         string direction = "";
-        int randomDirectionIndex = Random.Range(1, possibleDirection.Count);
+        int randomDirectionIndex = Random.Range(0, possibleDirection.Count);
+        if (randomDirectionIndex < 0)
+        {
+            randomDirectionIndex *= -1;
+        }
         direction = possibleDirection[randomDirectionIndex];
         return direction;
     }
@@ -353,38 +423,7 @@ public class EnemyController : MonoBehaviour
     //***********MOVIMIENTO DE CLYDE*********//
     void DetermineOrangeGhostDirection()
     {
-        // if (moveController.currentNode == null)
-        // {
-        //     Debug.LogWarning("Clyde: currentNode es null.");
-        //     return;
-        // }
 
-        // float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
-        // float scatterThreshold = 0.35f * 8;
-
-        // Vector2 targetPosition;
-
-        // if (distance <= scatterThreshold)
-        // {
-        //     // Si Pacman está cerca, se comporta como Blinky
-        //     targetPosition = gameManager.pacman.transform.position;
-        // }
-        // else
-        // {
-        //     // Si Pacman está lejos, se va a su esquina Scatter
-        //     targetPosition = new Vector2(-13f, -15f); // esquina de Clyde
-        // }
-
-        // string direction = GetClosestDirection(targetPosition);
-
-        // if (!string.IsNullOrEmpty(direction))
-        // {
-        //     moveController.SetDirection(direction);
-        // }
-        // else
-        // {
-        //     Debug.LogWarning("Clyde no encontró dirección válida hacia el objetivo.");
-        // }
         float distance = Vector2.Distance(gameManager.pacman.transform.position, transform.position);
         float scatterThreshold = 0.35f * 8;
         if (distance < 0)
@@ -400,10 +439,7 @@ public class EnemyController : MonoBehaviour
             DeterminateGhosteScatterModeDirection();
 
         }
-        // else
-        // {
-        //     DeterminateGhosteScatterModeDirection();
-        // }
+
 
     }
 
@@ -463,5 +499,26 @@ public class EnemyController : MonoBehaviour
             }
         }
         return newDirection;
+    }
+    public void SetVisible(bool newVisible)
+    {
+        isVisible = newVisible;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && ghostNodeState != GhostNodesStatesEnum.respawing)
+        {
+            if (isFrightened)
+            {
+                gameManager.GhostEaten();
+                ghostNodeState = GhostNodesStatesEnum.respawing;
+
+            }
+            else
+            {
+                StartCoroutine(gameManager.PlayerEaten());
+
+            }
+        }
     }
 }

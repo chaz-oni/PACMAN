@@ -5,8 +5,9 @@ public class PlayerController : MonoBehaviour
     MoveController movementController;
     public GameObject startNode;
     public GameManager gameManager;
+    public AudioSource death;
 
-    Animator animator;
+    public Animator animator;
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -16,21 +17,32 @@ public class PlayerController : MonoBehaviour
         movementController.lastMovingDirection = "left";
         startNode = movementController.currentNode;
 
+
     }
 
     public void Setup()
     {
         movementController.currentNode = startNode;
         movementController.lastMovingDirection = "left";
+        transform.localScale = new Vector3(-1, 1, 1);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        animator.speed = 1;
+        transform.localPosition = new Vector2(-0.051f, -2.235f);
+    }
+    void Stop()
+    {
+        animator.speed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (!gameManager.gameIsRunnig)
         {
             return;
         }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (movementController.CanMoveInDirection("left"))
@@ -71,5 +83,10 @@ public class PlayerController : MonoBehaviour
                 animator.Play("Pacman");
             }
         }
+    }
+    public void Death()
+    {
+        death.Play();
+        animator.SetBool("Pacman", false);
     }
 }
