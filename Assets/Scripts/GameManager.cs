@@ -1,11 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using TMPro;
 
@@ -48,13 +43,15 @@ public class GameManager : MonoBehaviour
     public GhostMode currentGhostMode;
 
     [Header("AudioSources")]
-    // public AudioSource siren;
-    // public AudioSource munch1;
-    // public AudioSource munch2;
-    // public AudioSource startGameAudio;
+    public AudioSource siren;
+    public AudioSource munch1;
+    public AudioSource munch2;
+    public AudioSource startGameAudio;
 
     public int currentMunch = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
+
     public int score;
     public bool hadDeadOnThisLevel = false;
 
@@ -77,11 +74,16 @@ public class GameManager : MonoBehaviour
     public bool runningTimmer;
 
     public int powerPelletMultiplyer = 1;
+
     void Awake()
     {
+        siren.Stop();
+        munch1.Stop();
+        munch2.Stop();
 
         newGame = true;
         clearedLevel = false;
+
 
         redGhostController = redGhost.GetComponent<EnemyController>();
         pinkGhostController = pinkGhost.GetComponent<EnemyController>();
@@ -124,8 +126,11 @@ public class GameManager : MonoBehaviour
             // startGameAudio.Play();
             score = 0;
             scoreText.text = "Score " + score.ToString();
-            lives = 3;
+            SetLives(3);
             currentLevel = 1;
+            startGameAudio.Play();
+            siren.Stop();
+            munch1.Stop();
         }
 
 
@@ -146,11 +151,13 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         gameIsRunnig = true;
+        siren.Play();
 
     }
     void StopGame()
     {
         gameIsRunnig = false;
+        siren.Stop();
         pacman.GetComponent<PlayerController>().StopAllCoroutines();
 
     }
@@ -195,6 +202,7 @@ public class GameManager : MonoBehaviour
                 powerPelletMultiplyer = 1;
             }
         }
+
 
     }
     public void GotPelletFromNodeController(NodeController nodeController)
@@ -254,11 +262,12 @@ public class GameManager : MonoBehaviour
         AddScore(10);
         if (pelletsleft == 0)
         {
+            StartCoroutine(Setup());
             currentLevel++;
             clearedLevel = true;
             StopGame();
             yield return new WaitForSeconds(1);
-            StartCoroutine(Setup());
+
         }
 
         if (nodeController.isPowerPellet)
@@ -286,6 +295,12 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(PauseGame(1));
     }
+    public void SetLives(int newLives)
+    {
+        lives = newLives;
+        livesText.text = "Lives: " + lives;
+
+    }
 
 
     public IEnumerator PlayerEaten()
@@ -300,9 +315,10 @@ public class GameManager : MonoBehaviour
         orangeGhostController.SetVisible(false);
 
         pacman.GetComponent<PlayerController>().Death();
+
         yield return new WaitForSeconds(3);
 
-        lives--;
+        SetLives(lives - 1);
         if (lives <= 0)
         {
             newGame = true;

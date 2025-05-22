@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -149,6 +146,14 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+        if (gameManager.powerPelletTimer - gameManager.currentPowerPelletTime <= 3)
+        {
+            //animator de parpadeo
+        }
+        else
+        {
+            //quita el parpadeo animator.setbool
+        }
         if (testRespawn == true)
         {
             //readyToLeaveHome = false;
@@ -161,7 +166,19 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            moveController.SetSpeed(1);
+            if (isFrightened)
+            {
+                moveController.SetSpeed(1);
+            }
+            else if (ghostNodeState == GhostNodesStatesEnum.respawing)
+            {
+                moveController.SetSpeed(5);
+            }
+            else
+            {
+                moveController.SetSpeed(2);
+            }
+
         }
 
     }
