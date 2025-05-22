@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public int currentMunch = 0;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI gameoverText;
 
     public int score;
     public bool hadDeadOnThisLevel = false;
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         newGame = true;
         clearedLevel = false;
 
-
+        gameoverText.enabled = false;
         redGhostController = redGhost.GetComponent<EnemyController>();
         pinkGhostController = pinkGhost.GetComponent<EnemyController>();
         blueGhostController = blueGhost.GetComponent<EnemyController>();
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
         newGame = false;
         clearedLevel = false;
         hadDeadOnThisLevel = false;
+        gameoverText.enabled = false;
         yield return new WaitForSeconds(waitTimer);
         StartCoroutine(SpawnCherryRoutine());
 
@@ -399,11 +401,13 @@ public class GameManager : MonoBehaviour
 
         pacman.GetComponent<PlayerController>().Death();
 
+
         yield return new WaitForSeconds(3);
 
         SetLives(lives - 1);
         if (lives <= 0)
         {
+            gameoverText.enabled = true;
             newGame = true;
             yield return new WaitForSeconds(3);
         }
